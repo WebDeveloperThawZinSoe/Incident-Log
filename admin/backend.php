@@ -52,9 +52,9 @@ function image_filter($image,$location){
        $sql = "INSERT INTO category(category,status) VALUES ('$category',1)";
        $result = mysqli_query($connect,$sql);
        if($result){
-        success_message("Create Category Success","category & subcategory.php");
+        success_message("Create Category Success",$_SERVER['HTTP_REFERER']);
        }else{
-        error_message("Create Category Fail","category & subcategory.php");
+        error_message("Create Category Fail",$_SERVER['HTTP_REFERER']);
        }
     }
 
@@ -65,9 +65,9 @@ function image_filter($image,$location){
         $sql = "UPDATE category SET status='0' WHERE id=$id";
         $result = mysqli_query($connect,$sql);
         if($result){
-         success_message("Delete Category Success","category & subcategory.php");
+         success_message("Delete Category Success",$_SERVER['HTTP_REFERER']);
         }else{
-         error_message("Delete Category Fail","category & subcategory.php");
+         error_message("Delete Category Fail",$_SERVER['HTTP_REFERER']);
         }
     }
 
@@ -78,9 +78,21 @@ function image_filter($image,$location){
        $sql = "INSERT INTO sub_category(cat_id,subcategory,status) VALUES ('$category','$subcategory','1')";
        $result = mysqli_query($connect,$sql);
        if($result){
-        success_message("Create SubCategory Success","category & subcategory.php");
+        success_message("Create SubCategory Success",$_SERVER['HTTP_REFERER']);
        }else{
-        error_message("Create SubCategory Fail","category & subcategory.php");
+        error_message("Create SubCategory Fail",$_SERVER['HTTP_REFERER']);
        }
+    }
+
+    /* Sub Category Delete*/
+    if(isset($_POST["sub_category_delete"])){
+        $id = $_POST["id"];
+        $sql = "UPDATE sub_category SET status='0' WHERE id=$id";
+        $result = mysqli_query($connect,$sql);
+        if($result){
+         success_message("Delete SubCategory Success",$_SERVER['HTTP_REFERER']);
+        }else{
+         error_message("Delete SubCategory Fail",$_SERVER['HTTP_REFERER']);
+        }
     }
 ?>
