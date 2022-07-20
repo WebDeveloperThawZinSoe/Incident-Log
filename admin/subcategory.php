@@ -88,13 +88,13 @@
                                         $cat_id = $value['cat_id'];
                                         $status = $value['status'];
                                         if($status == 1){
-
+                                           $cat = $_GET["id"];
                                         
                                         ?>
                             <tr>
                                 <td><?php echo ++$number; ?></td>
                                 <td>
-                                    <a href="incident.php?id=<?php echo $value['id'] ?>">  <?php echo $value['subcategory']; ?> </a>
+                                    <a href="incident.php?sub_id=<?php echo $value['id'] ?>&&cat_id=<?php echo $cat ?>">  <?php echo $value['subcategory']; ?> </a>
                                    
                                 </td>
                                 <td>

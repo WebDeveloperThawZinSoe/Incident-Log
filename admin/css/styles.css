@@ -5124,7 +5124,9 @@ textarea.form-control-lg {
   margin-top: -1px;
   border-top-width: 1px;
 }
-
+#text_btn{
+  background-image: url("https://www.apexmmweb.com/wp-content/uploads/2022/07/apex2-1.png") !important;
+}
 .list-group-horizontal {
   flex-direction: row;
 }

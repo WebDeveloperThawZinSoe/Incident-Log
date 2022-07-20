@@ -94,7 +94,7 @@
                         </thead>
                         <tbody>
                             <?php
-                                $sql = "SELECT * FROM incident WHERE cat_id=$cat_id && sub_cat_id=$sub_id";
+                                $sql = "SELECT * FROM incident WHERE cat_id='$cat_id' && sub_cat_id='$sub_id'";
                                 $result = mysqli_query($connect,$sql);
                                 $number_row = mysqli_num_rows($result);
                                 $number = 0;
@@ -107,7 +107,7 @@
                             <tr>
                                 <td><?php echo ++$number; ?></td>
                                 <td>
-                                    <a href="solution.php?cat_id=<?php echo $cat_id; ?>&&sub_cat_id=<?php echo $sub_id ?>&&incident_id=<?php echo $value['id']; ?>">  <?php echo $value['title']; ?> </a>
+                                    <a href="solution.php?id=<?php echo $value['id']; ?>">  <?php echo $value['title']; ?> </a>
                                    
                                 </td>
                                 <td>

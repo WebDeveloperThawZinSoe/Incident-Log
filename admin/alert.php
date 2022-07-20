@@ -17,7 +17,7 @@ $_SESSION["success"] = null;
         ?>
 <script>
     Swal.fire(
-        'Good job!',
+        '',
         '<?php echo $_SESSION["error"]; ?>',
         'error'
     )

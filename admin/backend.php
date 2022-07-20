@@ -95,4 +95,31 @@ function image_filter($image,$location){
          error_message("Delete SubCategory Fail",$_SERVER['HTTP_REFERER']);
         }
     }
+
+    /* incident_create */
+    if(isset($_POST['incident_create'])){
+        $cat_id = htmlspecialchars($_POST['category']);
+        $sub_id = htmlspecialchars($_POST['subcategory']);
+        $incident = htmlspecialchars($_POST['incident']);
+        $date = date("Y-m-d");
+        $sql = "INSERT INTO incident(title,cat_id,sub_cat_id,create_at) VALUES ('$incident','$cat_id','$sub_id','$date')";
+        $result = mysqli_query($connect,$sql);
+        if($result){
+            success_message("Create Incident Success",$_SERVER['HTTP_REFERER']);
+           }else{
+            error_message("Create Incident  Fail",$_SERVER['HTTP_REFERER']);
+           }
+    }
+
+    /* incident_delete */
+    if(isset($_POST["incident_delete"])){
+        $id = htmlspecialchars($_POST["id"]);
+        $sql = "DELETE FROM incident WHERE id='$id'";
+        $result = mysqli_query($connect,$sql);
+        if($result){
+            success_message("Delete Incident Success",$_SERVER['HTTP_REFERER']);
+           }else{
+            error_message("Delete Incident  Fail",$_SERVER['HTTP_REFERER']);
+           }
+    }
 ?>
