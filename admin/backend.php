@@ -122,4 +122,52 @@ function image_filter($image,$location){
             error_message("Delete Incident  Fail",$_SERVER['HTTP_REFERER']);
            }
     }
+
+    /* solution_create */
+    if(isset($_POST['solution_create'])){
+
+       
+        $incident = htmlspecialchars($_POST['incident']);
+        $solution = htmlspecialchars($_POST['solution']);
+        $date = date("Y-m-d");
+        $sql = "INSERT INTO solution(incident_id,answer,member_id,create_date) VALUES ($incident,'$solution',1,'$data')";
+        $result = mysqli_query($connect, $sql);
+        if($result){
+            success_message("Create Solution Success",$_SERVER['HTTP_REFERER']);
+           }else{
+            error_message("Create Solution  Fail",$_SERVER['HTTP_REFERER']);
+           }
+    }
+
+
+    /* create_log */
+    if(isset($_POST['create_log'])){
+       $cat_id = htmlspecialchars($_POST["cat_id"]);
+       $sub_id = htmlspecialchars($_POST["sub_id"]);
+       $inc_id = htmlspecialchars($_POST["inc_id"]);
+       $answer_id = htmlspecialchars($_POST["answer_id"]);
+       $location  = htmlspecialchars($_POST["location"]);
+       $remark = htmlspecialchars($_POST["remark"]);
+       $date = date("Y-m-d");
+       $sql = "INSERT INTO logs (cat_id,sub_cat_id,incident_id,solution_id, name, location,remark,create_at) VALUES ($cat_id,$sub_id,$inc_id,$answer_id,'Admin','$location','$remark','$date')";
+       $result = mysqli_query($connect,$sql);
+       if($result){
+        success_message("Create Logs Success","view_logs.php");
+       }else{
+        error_message("Create Logs  Fail","view_logs.php");
+       }
+    }
+
+
+    /* create_location */
+    if(isset($_POST["create_location"])){
+       $location = htmlspecialchars($_POST["location"]);
+       $sql = "INSERT INTO location(name) VALUES ('$location')";
+       $result = mysqli_query($connect,$sql);
+       if($result){
+        success_message("Create Location Success",$_SERVER['HTTP_REFERER']);
+       }else{
+        error_message("Create Location  Fail",$_SERVER['HTTP_REFERER']);
+       }
+    }
 ?>

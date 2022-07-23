@@ -34,13 +34,13 @@
             <div class="row">
 
                 <div class="container">
-                <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-    <li class="breadcrumb-item"><a href="category.php">Category</a></li>
-    <li class="breadcrumb-item active" aria-current="page"><?php echo $name; ?></li>
-  </ol>
-</nav>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="category.php">Category</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><?php echo $name; ?></li>
+                        </ol>
+                    </nav>
                 </div>
 
                 <div class="col-md-6">
@@ -94,8 +94,9 @@
                             <tr>
                                 <td><?php echo ++$number; ?></td>
                                 <td>
-                                    <a href="incident.php?sub_id=<?php echo $value['id'] ?>&&cat_id=<?php echo $cat ?>">  <?php echo $value['subcategory']; ?> </a>
-                                   
+                                    <a href="incident.php?sub_id=<?php echo $value['id'] ?>&&cat_id=<?php echo $cat ?>">
+                                        <?php echo $value['subcategory']; ?> </a>
+
                                 </td>
                                 <td>
 
