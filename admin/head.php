@@ -36,4 +36,7 @@
     <?php
         session_start();
         include "database.php";
+        if(!isset($_SESSION['admin_username']) && !isset($_SESSION['admin_password']) ){
+          header('Location:../index.php');
+        }
     ?>

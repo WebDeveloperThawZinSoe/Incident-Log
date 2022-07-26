@@ -170,4 +170,29 @@ function image_filter($image,$location){
         error_message("Create Location  Fail",$_SERVER['HTTP_REFERER']);
        }
     }
+
+
+    /* member_create */
+    if(isset($_POST["member_create"])){
+       $username = htmlspecialchars($_POST["username"]);
+       $password = htmlspecialchars($_POST["password"]);
+       $role = htmlspecialchars($_POST["role"]);
+       $date = date("Y-m-d");
+       $sql = "SELECT * FROM member WHERE name='$username'";
+       $result = mysqli_query($connect, $sql);
+       $row = mysqli_num_rows($result);
+       if($row > 0){
+        error_message("Member Already Exists ",$_SERVER['HTTP_REFERER']);
+        die();
+       }
+        /* No Encrypt Here Encrypt Your Self */
+       $sql2 = "INSERT INTO member(name,password,role,status,profile,position, department,phone,create_at) VALUES ('$username','$password','$role',1,'-','-','-','-','$data')";
+       $result2 = mysqli_query($connect,$sql2);
+       if($result){
+        success_message("Member Create Success",$_SERVER['HTTP_REFERER']);
+       }else{
+        error_message("Member Create  Fail",$_SERVER['HTTP_REFERER']);
+       }
+    }
+
 ?>

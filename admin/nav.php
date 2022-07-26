@@ -7,7 +7,9 @@
                                 <li class="nav-item active"><a class="nav-link" href="index.php">Home</a></li>
                              
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account Settings</a>
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <?php echo $_SESSION["username"]; ?>
+                                    </a>
                                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="#!">Account</a>
                                        
